@@ -1,247 +1,211 @@
-/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
 
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Blokujemy przewijanie poziome */
+  width: 100vw; /* Zapewniamy szerokoĹÄ odpowiadajÄcÄ oknu przeglÄdarki */
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
+nav ul {
+  list-style: none;
   padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
 }
 
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
+nav ul li {
+  display: inline;
+  margin: 0 15px;
 }
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
+nav ul li a {
+  color: white;
+  text-decoration: none;
 }
 
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
+main {
+  padding: 20px;
+  text-align: center;
+  padding-bottom: 80px; /* Rezerwujemy miejsce na footer */
 }
 
-.clearfix::after {
-  clear: both;
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
+/* Naprawa footera na urzÄdzeniach mobilnych, tabletach i wÄskich ekranach desktopowych */
+@media (max-width: 1280px) {
+  main {
+    margin-bottom: 80px; /* ZwiÄkszamy odstÄp na mniejszych ekranach */
   }
 
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
+  footer {
+    position: relative; /* Footer nie bÄdzie zasĹaniaĹ treĹci */
   }
 }
 
+/* Desktop (jeĹli ekran jest wystarczajÄco szeroki) */
+@media (min-width: 1281px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+/* Poprawka dla szerokich tabel i kontenerĂłw */
+.list-table {
+  max-width: 100%;
+  overflow-x: auto; /* JeĹli tabela jest szersza, dodajemy przewijanie tylko dla niej */
+}
+
+.list-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Dodatkowa poprawka dla szerokich elementĂłw */
+.columns, .column, .list-items, .list-item {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box; /* Zapobiega wychodzeniu poza ekran */
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.column {
+  padding: 20px;
+  border: 1px solid #ddd;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Desktop: 3 kolumny obok siebie */
+@media (min-width: 1024px) {
+  .columns {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .column {
+    width: 32%;
+  }
+}
+
+/* Tablet: 2 kolumny w pierwszym wierszu, 1 w drugim */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+  .column:nth-child(1), .column:nth-child(2) {
+    width: 100%;
+  }
+  .column:nth-child(3) {
+    grid-column: span 2;
+    width: 100%;
+  }
+}
+
+/* Mobile: UkĹad jednokolumnowy */
+@media (max-width: 767px) {
+  .columns {
+    flex-direction: column;
+  }
+  .column {
+    width: 100%;
+  }
+}
+
+/* Stylizacja listy danych */
+.list-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filters input, .filters select {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Desktop: tabela */
+@media (min-width: 1024px) {
+  .list-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .list-table th, .list-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .list-table th {
+    background-color: #f4f4f4;
+    position: relative;
+  }
+  .list-table th button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 5px;
+    padding: 0;
+  }
+  .list-table th button:focus {
+    outline: none;
+  }
+}
+
+/* Mobile & Tablet: Karty */
+@media (max-width: 1023px) {
+  .list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .list-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .list-item h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+  .list-item a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dodatkowa Podstrona</title>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<header>
+  <h1>Dodatkowa Podstrona</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="lista.html">Lista danych</a></li>
+      <li><a href="szczegoly.html">Szczegóły</a></li>
+      <li><a href="kolumny.html">Podstrona z 3 kolumnami</a></li>
+      <li><a href="dodatkowa.html">Dodatkowa podstrona</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <h2>Formularz Kontaktowy</h2>
+  <form id="contactForm">
+    <label for="name">Imię:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Wiadomość:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Wyślij</button>
+  </form>
+</main>
+<footer>
+  <p>&copy; 2025 Moja Aplikacja</p>
+</footer>
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    alert("Formularz został wysłany!");
+  });
+</script>
+</body>
+</html>
