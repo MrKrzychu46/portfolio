@@ -135,6 +135,18 @@ footer {
   .column {
     width: 100%;
   }
+
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  form button {
+    display: block;          /* zamienia na element blokowy */
+    margin: 15px auto 0;
+  }
 }
 
 
@@ -210,4 +222,48 @@ footer {
     color: #007bff;
     font-weight: bold;
   }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+form button {
+
+  padding: 10px;
+  background-color: #333333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  display: block;          /* zamienia na element blokowy */
+  margin: 15px auto 0;
+}
+
+form button:hover {
+  background-color: #555555;
+}
+
+.page-btn {
+  background-color: #333333;
+  color: white;
+}
+.page-btn:hover {
+  background-color: #555555;
 }
