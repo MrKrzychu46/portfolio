@@ -6,7 +6,7 @@ app.use(cors());
 app.use(express.json());
 
 // Generowanie 200 unikalnych produktów
-let dane = Array.from({ length: 200 }, (_, i) => ({
+let dane = Array.from({ length: 60 }, (_, i) => ({
   id: i + 1,
   title: `${generateRandomName()}`,
   description: generateRandomDescription()
