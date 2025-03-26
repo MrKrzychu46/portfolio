@@ -1,9 +1,21 @@
 # Include your project-specific ignores in this file
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 # Useful .gitignore templates: https://github.com/github/gitignore
-node_modules
-dist
-.cache
+
+# Pliki i katalogi Node.js
+node_modules/
+dist/
+.cache/
+
+# Pliki środowiskowe (sekrety)
 .env
 GPT/.env
+
+# Pliki systemowe/macOS
+.DS_Store
+
+# Logi i inne tymczasowe
+*.log
+
+
 GPT/.env
