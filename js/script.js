@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     main.innerHTML = "<h2>Ładowanie artykułu...</h2><p>Proszę czekać...</p>";
 
-    fetch("https://portfolio-3juy.vercel.app/api/summarize", {
+    fetch("https://portfolio-xfkw.vercel.app/api/summarize", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
