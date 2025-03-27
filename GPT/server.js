@@ -14,8 +14,15 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-app.use(cors());
 app.use(express.json());
+app.use(cors({
+  origin: [
+    "http://localhost:63342",
+    "https://mrkrzychu46.github.io",
+    "https://portfolio-3juy.vercel.app"
+  ]
+}));
+
 
 app.post('/api/summarize', async (req, res) => {
   const { url } = req.body;
