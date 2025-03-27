@@ -14,15 +14,16 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-app.use(express.json());
+// ✅ DODAJEMY NOWY BACKEND VERCEL DO CORS
 app.use(cors({
   origin: [
     "http://localhost:63342",
     "https://mrkrzychu46.github.io",
-    "https://portfolio-3juy.vercel.app"
+    "https://portfolio-xfkw.vercel.app" // 👈 to jest kluczowe!
   ]
 }));
 
+app.use(express.json());
 
 app.post('/api/summarize', async (req, res) => {
   const { url } = req.body;
@@ -30,16 +31,12 @@ app.post('/api/summarize', async (req, res) => {
   if (!url) return res.status(400).json({ error: 'Brak URL' });
 
   try {
-    // 1. Pobierz stronę
     const response = await axios.get(url);
     const html = response.data;
     const $ = cheerio.load(html);
-
-    // 2. Wyciągnij treść
     const paragraphs = $('p').map((i, el) => $(el).text()).get();
-    const rawText = paragraphs.join('\n').slice(0, 4000); // ogranicz dla GPT
+    const rawText = paragraphs.join('\n').slice(0, 4000);
 
-    // 3. Wyślij do OpenAI (wersja kompatybilna z openai@3)
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
@@ -67,7 +64,6 @@ app.post('/api/summarize', async (req, res) => {
       res.status(500).json({ error: 'Błąd serwera lub połączenia' });
     }
   }
-
 });
 
 app.listen(PORT, () => {
