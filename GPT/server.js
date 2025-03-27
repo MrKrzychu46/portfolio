@@ -14,14 +14,8 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-// ✅ DODAJEMY NOWY BACKEND VERCEL DO CORS
-app.use(cors({
-  origin: [
-    "http://localhost:63342",
-    "https://mrkrzychu46.github.io",
-    "https://portfolio-xfkw.vercel.app" // 👈 to jest kluczowe!
-  ]
-}));
+
+app.use(cors({ origin: true }));
 
 app.use(express.json());
 
