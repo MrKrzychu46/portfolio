@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let sortBy = localStorage.getItem("sortBy") || "title";
 
     const fetchData = () => {
-      fetch("http://api.mediastack.com/v1/news?access_key=bb3318bc4f4a5920fbf733df740c0549&limit=100&sort=published_desc")
+      fetch("https://api.mediastack.com/v1/news?access_key=bb3318bc4f4a5920fbf733df740c0549&limit=100&sort=published_desc")
         .then(response => response.json())
         .then(json => {
           allData = json.data || [];
