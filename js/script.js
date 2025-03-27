@@ -1,6 +1,10 @@
+// script.js
 document.addEventListener("DOMContentLoaded", () => {
   const main = document.querySelector("main");
 
+  // ===============================
+  // STRONA LISTY
+  // ===============================
   if (window.location.pathname.includes("lista.html")) {
     let currentPage = 1;
     const itemsPerPage = 5;
@@ -43,20 +47,22 @@ document.addEventListener("DOMContentLoaded", () => {
                             <th>Link</th>
                         </tr>`;
         paginatedData.forEach(item => {
+          const encodedURL = encodeURIComponent(item.url);
           content += `<tr>
                           <td>${item.title}</td>
                           <td>${item.source}</td>
-                          <td><a href="${item.url}" target="_blank">Zobacz</a></td>
+                          <td><a href="szczegoly.html?url=${encodedURL}">Zobacz</a></td>
                       </tr>`;
         });
         content += `</table>`;
       } else {
         content += `<div class="list-items">`;
         paginatedData.forEach(item => {
+          const encodedURL = encodeURIComponent(item.url);
           content += `<div class="list-item">
                           <h3>${item.title}</h3>
                           <p>Źródło: ${item.source}</p>
-                          <a href="${item.url}" target="_blank">Zobacz</a>
+                          <a href="szczegoly.html?url=${encodedURL}">Zobacz</a>
                       </div>`;
         });
         content += `</div>`;
@@ -162,5 +168,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("resize", renderList);
     fetchData();
+  }
+
+  // ===============================
+  // STRONA SZCZEGÓŁÓW
+  // ===============================
+  if (window.location.pathname.includes("szczegoly.html")) {
+    const params = new URLSearchParams(window.location.search);
+    const url = params.get("url");
+
+    if (!url) {
+      main.innerHTML = "<h2>Błąd: Brak adresu URL artykułu</h2>";
+      return;
+    }
+
+    main.innerHTML = "<h2>Ładowanie artykułu...</h2><p>Proszę czekać...</p>";
+
+    fetch("http://localhost:3001/api/summarize", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ url: decodeURIComponent(url) })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.summary) {
+          main.innerHTML = `<h2>Streszczenie artykułu</h2><p>${data.summary.replace(/\n/g, "<br>")}</p>`;
+        } else {
+          main.innerHTML = "<h2>Nie udało się pobrać artykułu</h2>";
+        }
+      })
+      .catch(() => {
+        main.innerHTML = "<h2>Błąd w komunikacji z serwerem</h2>";
+      });
   }
 });
