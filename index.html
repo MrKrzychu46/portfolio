@@ -1,77 +1,163 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio KŁ</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" href="IMG/Logo.png">
-
+  <link rel="icon" type="image/png" href="IMG/Logo.png" />
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
+
+<!-- Nawigacja -->
 <nav class="bg-gray-800">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Przycisk mobilnego menu -->
-        <button type="button"
-                id="mobile-menu-toggle"
-                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-none focus:ring-inset"
-                aria-controls="mobile-menu"
-                aria-expanded="false">
-          <span class="sr-only">Otwórz menu główne</span>
-
-          <!-- Ikona hamburgera -->
-          <svg id="icon-hamburger" class="block h-6 w-6" fill="none" viewBox="0 0 24 24"
-               stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+        <button type="button" id="mobile-menu-toggle" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+          <svg id="icon-hamburger" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
           </svg>
-
-          <!-- Ikona X -->
-          <svg id="icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24"
-               stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M6 18L18 6M6 6l12 12"/>
+          <svg id="icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
-
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex shrink-0 items-center">
-          <img class="h-8 w-auto rounded-lg" src="IMG/Logo.png" alt="Your Company">
-        </div>
+        <a href="index.html" class="flex shrink-0 items-center hover:opacity-90 transition-opacity duration-200">
+          <img class="h-8 w-auto rounded-lg" src="IMG/Logo.png" alt="Logo" />
+        </a>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
-            <a href="index.html" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
-            <a href="lista.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">List</a>
-            <a href="kolumny.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Columns</a>
-            <a href="dodatkowa.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+            <a href="index.html" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="lista.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">News</a>
+            <a href="kolumny.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Project</a>
+            <a href="dodatkowa.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Mobilne menu -->
   <div class="sm:hidden hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pt-2 pb-3">
-      <a href="index.html" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
-      <a href="lista.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">List</a>
-      <a href="kolumny.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Columns</a>
-      <a href="dodatkowa.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+      <a href="index.html" class="block bg-gray-900 text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
+      <a href="lista.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">News</a>
+      <a href="kolumny.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Project</a>
+      <a href="dodatkowa.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
     </div>
   </div>
 </nav>
 
-<main>
-  <h2>Witaj na stronie głównej</h2>
-  <p>To jest responsywny interfejs użytkownika.</p>
+
+<!-- Główna treść -->
+<main class="p-6 space-y-16 max-w-5xl mx-auto flex-grow">
+
+  <!-- Hero -->
+  <section class="text-center space-y-4 mt-10">
+    <h1 class="text-4xl font-bold">Krzysztof Łyszczarz</h1>
+    <p class="text-xl text-gray-600">Zmieniam pomysły w interaktywne doświadczenia</p>
+    <div class="flex flex-col sm:flex-row sm:space-x-4 gap-2 justify-center items-center">
+      <a href="kolumny.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md w-full sm:w-auto text-center">Zobacz moje projekty</a>
+      <a href="dodatkowa.html" class="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-md w-full sm:w-auto text-center">Skontaktuj się ze mną</a>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="text-center">
+    <span class="flex items-center mb-6">
+      <span class="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300"></span>
+      <span class="shrink-0 px-4 text-gray-900 text-2xl">O mnie</span>
+      <span class="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300"></span>
+    </span>
+    <p class="mb-2">Jestem zmotywowanym i kreatywnym studentem informatyki z solidnym zapleczem technicznym i doświadczeniem
+      jako pomocnik elektromontera. Moje umiejętności programistyczne oraz znajomość narzędzi CAD i drukowania 3D
+      czynią mnie wszechstronnym kandydatem do projektów technicznych i informatycznych. Posiadam również
+      certyfikaty SEP oraz kursy ELE.05 i ELO.02, które potwierdzają moje kwalifikacje w dziedzinie elektryki. Angażuję
+      się w rozwój nowych technologii, co znajduje odzwierciedlenie w moich licznych zainteresowaniach i hobby.
+    </p>
+  </section>
+
+
+  <!-- Zdjęcie -->
+  <section class="flex justify-center">
+    <img src="IMG/Profilowe.jpeg" alt="Zdjęcie profilowe" class="w-32 sm:w-40 md:w-48 lg:w-56 rounded-2xl shadow-lg" />
+  </section>
+
+
+  <!-- Projekty -->
+  <section id="projekty">
+    <span class="flex items-center mb-6">
+      <span class="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300"></span>
+      <span class="shrink-0 px-4 text-gray-900 text-2xl">Projekty</span>
+      <span class="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300"></span>
+    </span>
+    <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="text-xl font-bold">Projekt Aplikacji</h3>
+        <p class="mt-2">Aplikacja do zarządzania danymi z API stworzona w React.</p>
+        <a href="#" class="text-blue-600 mt-4 inline-block">Zobacz więcej →</a>
+      </div>
+      <div class="bg-white p-6 rounded shadow">
+        <h3 class="text-xl font-bold">Landing Page</h3>
+        <p class="mt-2">Minimalistyczny i responsywny landing page stworzony z użyciem Tailwind CSS.</p>
+        <a href="#" class="text-blue-600 mt-4 inline-block">Zobacz więcej →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologie -->
+  <section class="text-center">
+    <span class="flex items-center mb-6">
+      <span class="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300"></span>
+      <span class="shrink-0 px-4 text-gray-900 text-2xl">Technologie</span>
+      <span class="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300"></span>
+    </span>
+    <div class="flex flex-wrap justify-center gap-6">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" class="w-10" alt="Android Studio" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-10" alt="Java" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-10" alt="Python" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" class="w-10" alt="IntelliJ IDEA" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="w-10" alt="C++" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-10" alt="React" />
+    </div>
+  </section>
+
+  <!-- Social -->
+  <section class="text-center">
+    <span class="flex items-center mb-6">
+      <span class="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300"></span>
+      <span class="shrink-0 px-4 text-gray-900 text-2xl">Znajdziesz mnie</span>
+      <span class="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300"></span>
+    </span>
+    <p class="space-x-4">
+      <a href="https://github.com/MrKrzychu46" class="text-blue-600">GitHub</a>
+      <a href="https://www.linkedin.com/in/krzysztof-%C5%82yszczarz-57a077251/?trk=opento_sprofile_topcard" class="text-blue-600">LinkedIn</a>
+      <a href="cv/CV_KL_2025.pdf" download class="text-blue-600">Pobierz CV</a>
+    </p>
+  </section>
+
+  <!-- Kontakt -->
+  <section class="text-center">
+    <span class="flex items-center mb-6">
+      <span class="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300"></span>
+      <span class="shrink-0 px-4 text-gray-900 text-2xl">Masz pytanie?</span>
+      <span class="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300"></span>
+    </span>
+    <p>Skontaktuj się ze mną przez formularz.</p>
+    <a href="dodatkowa.html" class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">Formularz kontaktowy</a>
+  </section>
+
+  <br>
+  <br>
+  <br>
+  <br>
 </main>
 
+<!-- Stopka -->
 <footer class="bg-gray-800 text-center text-white w-full p-4">
-  <p>&copy; 2025 Moja Aplikacja</p>
+  <p>&copy; 2025 Krzysztof Łyszczarz</p>
 </footer>
 
 <script src="js/script.js"></script>
