@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let sortBy = "title";
 
     const fetchData = () => {
-      fetch("https://api.mediastack.com/v1/news?access_key=4d000480f159824b7b60196f68156a4f")
+      fetch("https://api.mediastack.com/v1/news?access_key=6aca8a0619aa0ffcb4726e4883bf41de")
         .then(response => response.json())
         .then(json => {
           allData = json.data || [];

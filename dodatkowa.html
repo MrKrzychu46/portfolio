@@ -6,8 +6,13 @@
   <title>Dodatkowa Podstrona</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="IMG/Logo.png">
-  <script src="js/script.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("Ees5TZwq2Fo_4tso6");
+    })();
+  </script>
 </head>
 <body>
 <nav class="bg-gray-800">
@@ -29,48 +34,43 @@
         </a>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
-            <a href="index.html" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
             <a href="lista.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">News</a>
             <a href="kolumny.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Project</a>
-            <a href="dodatkowa.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+            <a href="dodatkowa.html" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="sm:hidden hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pt-2 pb-3">
-      <a href="index.html" class="block bg-gray-900 text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
+      <a href="index.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
       <a href="lista.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">News</a>
       <a href="kolumny.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Project</a>
-      <a href="dodatkowa.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
+      <a href="dodatkowa.html" class="block bg-gray-900 text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
     </div>
   </div>
 </nav>
 
-
-<main class="mx-40 p-6">
+<main class="sm:mx-10 mx-auto p-6">
   <h2 class="text-2xl font-semibold mb-6 text-center">Formularz Kontaktowy</h2>
   <form id="contactForm" class="space-y-4">
     <div>
-      <label for="name" class="block text-sm font-medium text-gray-700">Imię:</label>
+      <label for="name" class="block text-sm font-medium text-gray-700">Imię i nazwisko:</label>
       <input type="text" id="name" name="name" required
              class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:border-indigo-500 focus:ring-indigo-500">
     </div>
-
     <div>
       <label for="email" class="block text-sm font-medium text-gray-700">E-mail:</label>
       <input type="email" id="email" name="email" required
              class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:border-indigo-500 focus:ring-indigo-500">
     </div>
-
     <div>
       <label for="message" class="block text-sm font-medium text-gray-700">Wiadomość:</label>
       <textarea id="message" name="message" required rows="5"
                 class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:border-indigo-500 focus:ring-indigo-500"></textarea>
     </div>
-
     <button type="submit" class="block mx-auto w-50 bg-gray-900 text-white py-2 px-4 rounded-md hover:bg-gray-700 transition-colors">
       Wyślij
     </button>
@@ -80,12 +80,23 @@
 <footer class="bg-gray-800 text-center text-white w-full p-4">
   <p>&copy; 2025 Krzysztof Łyszczarz</p>
 </footer>
+
 <script>
   document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
-    alert("Formularz został wysłany!");
 
-    document.getElementById("contactForm").reset();
+    emailjs.send("service_uklahep", "template_dxk3rc8", {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      message: document.getElementById("message").value
+    })
+      .then(function(response) {
+        alert("Wiadomość została wysłana pomyślnie!");
+        document.getElementById("contactForm").reset();
+      }, function(error) {
+        alert("Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.");
+        console.error("EmailJS error:", error);
+      });
   });
 </script>
 </body>
