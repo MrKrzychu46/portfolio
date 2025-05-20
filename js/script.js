@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const paginatedData = paginateData(sortedData, currentPage, itemsPerPage);
 
       let content = `
-        <h2 class="text-2xl font-semibold mb-6 text-center">News</h2>
+        <h2 class="text-2xl font-semibold mb-6 text-center">Wiadomości</h2>
         <div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-center gap-2">
             <label for="sort-select" class="text-sm text-gray-600">Sortuj:</label>
